@@ -1,16 +1,6 @@
 <template>
 <div class="cardProduto">
     <div class="imageProduto">
-<<<<<<< Updated upstream
-        <img :src="cadastroProds.image" alt="produto">
-    </div>
-    <div class="informacoes">
-        <label >{{cadastroProds.tituloItem}}</label>
-        <label>{{cadastroProds.marca}}</label>
-        <label>{{cadastroProds.modelo}}</label>
-
-    </div>
-=======
         <slot name="foto"></slot>
     </div>
     <div class="titulo">
@@ -31,22 +21,11 @@
 
 <script>
 export default {
-<<<<<<< Updated upstream
-computed: {
-        cadastroProds(){
-            this.$store.state.cadProdutoModule.cadastroProds;
-        }
-    },
-=======
 
->>>>>>> Stashed changes
 }
 </script>
 
 <style>
-<<<<<<< Updated upstream
-
-=======
 .cardProduto{
     border: solid 1.5px black;
     border-radius: 3%;
@@ -78,5 +57,4 @@ span{
    padding: 5px;
    border-radius: 20px; 
 }
->>>>>>> Stashed changes
 </style>
