@@ -20,6 +20,7 @@ const subrotas = [
 ]
 
 const routes = [
+<<<<<<< Updated upstream
     {path: '/', redirect: "/login"},
     {path: '/template', component: Template, children: subrotas,redirect: '/template/inventario'},
     // {path: '/template', component: Template},
@@ -31,6 +32,32 @@ const routes = [
     // {path: '/colaborador/cadastro', component: CadastroColaboradores},
     // {path: '/colaborador/listagem', component: ListagemColaboradores},
     // {path: '/inventario', component: Inventario}
+=======
+    {path: '/', component: Login, 
+    beforeEnter: (to) =>{
+        const autenticado = localStorage.getItem('autenticado');
+        if(autenticado){
+            return to = '/template'
+        }
+        return true}
+},
+    {path: '/template', component: Template, children: subrotas,redirect: '/template/inventario', beforeEnter: (to, from) => {
+        const autenticado = localStorage.getItem('autenticado');
+        if(autenticado){
+            return true
+        }
+        return to = '/'
+    }},
+    {path: '/cadastro', component: CadastroLogin, 
+    beforeEnter: (to) =>{
+        const autenticado = localStorage.getItem('autenticado');
+        if(autenticado){
+            return true
+        }
+        return to = '/'
+    }
+},
+>>>>>>> Stashed changes
     
 ]
 
