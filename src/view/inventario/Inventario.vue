@@ -345,7 +345,6 @@ export default {
 .imgEstatistica {
   width: 30%;
   height: 30%;
->>>>>>> Stashed changes
 }
 
 /* Seção Pesquisa */
