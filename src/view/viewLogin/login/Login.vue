@@ -77,7 +77,7 @@ export default {
         alert("Função em construção!")
     },
     cadastroLogin(){
-        this.$router.push('/login/cadastro')
+        this.$router.push('/cadastro')
     }
   },
 }
