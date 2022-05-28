@@ -33,14 +33,6 @@
       <div class="col-md-2"> 
         <label>Valor R$</label>
         <vee-field name="valor" type="number" class="form-control" v-model.lazy="cadastroProd.valor"/>
-<<<<<<< Updated upstream
-        <!-- <span class="text-warning" >{{msg}} </span> -->
-=======
-<<<<<<< Updated upstream
-        <!-- <span class="text-warning" >{{msg}} </span> -->
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         <span class="text-danger" v-show="errors.valor">{{ errors.valor }}</span>
       </div>
 
@@ -57,23 +49,13 @@
         <span class="text-danger" v-show="errors.marca">{{ errors.marca }}</span>
       </div>
 
-
-
       <div class="col-5">
         <label >Modelo</label>
         <vee-field name="modelo" type="text"  class="form-control" v-model="cadastroProd.modelo"/>
         <span class="text-danger" v-show="errors.modelo">{{ errors.modelo }}</span>
       </div>
 
-<<<<<<< Updated upstream
-      <div class="col-1">
-=======
-<<<<<<< Updated upstream
-      <div class="col-1">
-=======
       <div class="col-5">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         <label>Descrição</label>
         <vee-field name="descricao" type="text"  class="form-control" v-model="cadastroProd.descricao"/>
         <span class="text-danger" v-show="errors.descricao">{{ errors.descricao }}</span>
@@ -127,30 +109,16 @@ export default {
             return{
                 schema,
                 categorias: null,
-<<<<<<< Updated upstream
-                cadastroProd: {}
-=======
-<<<<<<< Updated upstream
-                cadastroProd: {}
-=======
                 cadastroProd: {},
                 titulo: "CADASTRO DE ITENS"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
             }
         },
         methods:{
             // metodo salvar o produto
             salvar(){
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
                 this.cadastroProd.status = false;
                 this.cadastroProd.nomeColab = null;
                 this.cadastroProd.idColab = null; 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
                 this.cadastroProd.id = Date.now(); // id será a data atual
                 this.$store.commit('cadProdutoModule/salvar', this.cadastroProd)
                 this.cadastroProd = {}; // limpando os dados na tela
@@ -165,22 +133,11 @@ export default {
         },
         beforeMount(){
             // criar os dropdown para categoria
-<<<<<<< Updated upstream
-            this.categorias=["Eletrônico", "Mobiliário", "Geral"];
-    }
-=======
-<<<<<<< Updated upstream
-            this.categorias=["Eletrônico", "Mobiliário", "Geral"];
-    }
-=======
             this.categorias=["Eletrônico", "Mobiliário", "Geral","Decoração"];
     },
     mounted(){
       this.$store.state.tituloModule.titulos = this.titulo;
     }
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 }
 </script>
 
