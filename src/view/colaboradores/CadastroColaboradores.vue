@@ -1,4 +1,11 @@
 <template>
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 <div class="colaboradorCad">
 <vee-form id="formColab" @submit="salvar" :validation-schema="schema" v-slot="{ errors }"> 
     <div class="row g-3" style="margin: 1%">
@@ -45,7 +52,14 @@
             </vee-field>
         <span class="text-danger" v-show="errors.cargo">{{ errors.cargo }}</span>
       </div>
+<<<<<<< Updated upstream
     
+=======
+<<<<<<< Updated upstream
+    
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     </div>
 
@@ -54,7 +68,14 @@
       <div class="col-md-2"> 
         <label for="cep">CEP</label>
         <vee-field name="cep" class="form-control" v-model.lazy="cadastroColab.cep"/>
+<<<<<<< Updated upstream
         <!-- <span class="text-warning" >{{msg}} </span> -->
+=======
+<<<<<<< Updated upstream
+        <!-- <span class="text-warning" >{{msg}} </span> -->
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         <span class="text-danger" v-show="errors.cep">{{ errors.cep }}</span>
       </div>
 
@@ -105,7 +126,15 @@
 
       <div class="botoes" style="margin-top: 3%">
       <div class="col-sm-12">
+<<<<<<< Updated upstream
         <button type="submit" class="btn btn-primary" style="margin-left: 2%">Salvar</button>
+=======
+<<<<<<< Updated upstream
+        <button type="submit" class="btn btn-primary" style="margin-left: 2%">Salvar</button>
+=======
+        <button type="submit" class="btn btn-primary" style="margin-left: 2%" @click="salvar">Salvar</button>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         <button type="buton" class="btn btn-warning" style="margin-left: 2%" @click="clear">Limpar</button>
       </div>
       </div>
@@ -118,6 +147,13 @@
 
 <script>
 import { Form, Field, defineRule } from 'vee-validate';
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+import axios from "axios";
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 export default {
     components: {
@@ -185,7 +221,14 @@ export default {
                 complemento: "required",
                 bairro: "required",
                 pontoReferencia:"required"
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             }
             return{
                 schema,
@@ -193,7 +236,16 @@ export default {
                 cargos: null,
                 endereco: null,
                 cidade: null,
+<<<<<<< Updated upstream
                 cadastroColab: {}
+=======
+<<<<<<< Updated upstream
+                cadastroColab: {}
+=======
+                cadastroColab: {},
+                titulo: "CADASTRO DE COLABORADORES"
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             }
         },
         methods:{
@@ -204,13 +256,24 @@ export default {
                 this.cadastroColab = {}; // limpando os dados na tela
                 document.getElementById('formColab').reset(); // retorna os valores originais
                 alert("Colaborador salvo com sucesso!"); // alert para informar que usuário foi salvo
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
             },
             // metodo limpar formulário em tela
             clear(){
                 this.cadastroColab = {};
             }
         },
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
         // watch: {
         //   'cadastroColab.cep'() {
         //     const url = `https://viacep.com.br/ws/${this.cep}/json`;
@@ -236,6 +299,34 @@ export default {
             this.generos=["Feminino", "Masculino", "Não Binário"];
             this.cargos = ["Dev Front-end", "Dev Back-end", "Diretor", "Gerente"];
     }
+<<<<<<< Updated upstream
+=======
+=======
+        //completa o endereço de cadastro
+        watch: {
+         'cadastroColab.cep'() {
+
+          axios.get(`https://viacep.com.br/ws/${this.cadastroColab.cep}/json`)
+         .then((response) => {
+           this.endereco = response.data
+           this.cadastroColab.cidade = this.endereco.localidade
+           this.cadastroColab.estado = this.endereco.uf
+          }).catch((error) => {
+            console.log(error)
+          })
+},
+        },
+        
+        beforeMount(){
+            // criar os dropdown para genero e cargos
+            this.generos=["Feminino", "Masculino", "Não Binário"];
+            this.cargos = ["Dev Front-end", "Dev Back-end", "Diretor", "Gerente", "CTO", "CEO","Engenheiro de Dados"];
+    },
+    mounted(){
+      this.$store.state.tituloModule.titulos = this.titulo;
+    },
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 }
 </script>
 
