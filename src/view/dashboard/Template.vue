@@ -66,10 +66,17 @@ export default {
         },
         
     },
+<<<<<<< Updated upstream
     monted(){
         this.$store.state.autenticacaoModule.autenticado = localStorage.getItem('autenticado') ? true : false
 >>>>>>> Stashed changes
     }
+=======
+    beforeMount(){
+        this.$store.state.userModule.autenticado = localStorage.getItem('autenticado') ? true : false
+        this.$store.commit("userModule/nomeUsuario");
+    },
+>>>>>>> Stashed changes
 
 }
 </script>
@@ -113,4 +120,8 @@ template{
 >>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 </style>

@@ -43,9 +43,15 @@ export default {
       return this.$store.state.userModule.nomeusuario;
     }
   },
+<<<<<<< Updated upstream
   // mounted(){
   //     this.$store.commit('userModule/nomeUsuario')
   //   },
+>>>>>>> Stashed changes
+=======
+  mounted(){
+      this.$store.commit('userModule/nomeUsuario');
+    },
 >>>>>>> Stashed changes
 };
 </script>
@@ -91,5 +97,8 @@ img{
   flex-direction: row;
   justify-content: space-between;
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </style>
