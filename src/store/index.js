@@ -46,16 +46,12 @@ const userModule = {
                 }
                 let nomeJSON = JSON.stringify(state.nomeusuario); // Transformar em JSON/String
                 localStorage.setItem('nomeusuario',nomeJSON); // salvar no localStorage a lista toda novamente
-                
-                
             });
         },
-        nomeUsuario(){
+        nomeUsuario(state){
             let nomeJSON = localStorage.getItem('nomeusuario')
-                state.nomeusuario = null;
-                state.nomeusuario =nomeJSON;
-            
-
+            state.nomeusuario = "";
+            state.nomeusuario =JSON.parse(nomeJSON)
         }     
     }
 
@@ -118,7 +114,6 @@ const cadColaboradorModule = {
             })
             state.colabPesquisado = index;
         }
-
     }
 }
 
@@ -236,14 +231,13 @@ const tituloModule ={
         }
     }
 }
->>>>>>> Stashed changes
-
 const store = createStore({
     modules:{
         cadColaboradorModule,
         cadProdutoModule,
         userModule,
         tituloModule
+        
     }
 });
 
