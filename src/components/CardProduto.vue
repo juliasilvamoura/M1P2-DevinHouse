@@ -15,7 +15,6 @@
     <div class="span">
         <slot name="span"></slot>
     </div>    
->>>>>>> Stashed changes
 </div>
 </template>
 
@@ -30,7 +29,7 @@ export default {
     border: solid 1.5px black;
     border-radius: 3%;
     text-align: center;
-    width: 25%;
+    width: 30%;
     margin: 0.5%;
     padding: 1%;
 }
