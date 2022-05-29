@@ -26,6 +26,8 @@ const userModule = {
         // deslogar
         logout(state){
             localStorage.removeItem('autenticado')
+            localStorage.removeItem('nomeusuario')
+            localStorage.removeItem('imgusuario')
             state.autenticado = false
           },
         
@@ -33,6 +35,9 @@ const userModule = {
           autenticar(state, login){
             // add email na imagem gravatar
             state.emailGravatar = login.email;
+            let imgJSON= JSON.stringify(state.emailGravatar);
+            localStorage.setItem('imgusuario',imgJSON);
+            // lista de usuarios cadastrados
             let listaUserJSON = localStorage.getItem('listaUsers') // recupera o localStorage
             if(listaUserJSON){ // se tiver algo na lista
                 state.users = []; //esvazio a lista
@@ -49,12 +54,16 @@ const userModule = {
             });
         },
         nomeUsuario(state){
-            let nomeJSON = localStorage.getItem('nomeusuario')
-            state.nomeusuario = "";
+            let nomeJSON = localStorage.getItem('nomeusuario');
+            state.nomeusuario = null;
             state.nomeusuario =JSON.parse(nomeJSON)
+        },
+        emailUsuario(state){
+            let imgJSON = localStorage.getItem('imgusuario');
+            state.emailGravatar = null;
+            state.emailGravatar = imgJSON;
         }     
     }
-
 }
 
 const cadColaboradorModule = {
@@ -114,6 +123,7 @@ const cadColaboradorModule = {
             })
             state.colabPesquisado = index;
         }
+
     }
 }
 
@@ -231,6 +241,7 @@ const tituloModule ={
         }
     }
 }
+
 const store = createStore({
     modules:{
         cadColaboradorModule,
