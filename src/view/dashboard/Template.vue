@@ -37,9 +37,11 @@ export default {
         },
         
     },
-    monted(){
-        this.$store.state.autenticacaoModule.autenticado = localStorage.getItem('autenticado') ? true : false
-    }
+
+    beforeMount(){
+        this.$store.state.userModule.autenticado = localStorage.getItem('autenticado') ? true : false
+        this.$store.commit("userModule/nomeUsuario");
+    },
 
 }
 </script>
@@ -74,5 +76,6 @@ template{
     margin-left: 12%;
     margin-top: 1%;
 }
+
 
 </style>

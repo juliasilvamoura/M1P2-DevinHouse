@@ -28,6 +28,9 @@ export default {
       return this.$store.state.userModule.nomeusuario;
     }
   },
+  mounted(){
+      this.$store.commit('userModule/nomeUsuario');
+    },
 
 };
 </script>
@@ -66,4 +69,5 @@ img{
   flex-direction: row;
   justify-content: space-between;
 }
+
 </style>
