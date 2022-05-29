@@ -30,8 +30,8 @@ export default {
   },
   mounted(){
       this.$store.commit('userModule/nomeUsuario');
+      this.$store.commit('userModule/emailUsuario');
     },
-
 };
 </script>
 
@@ -69,5 +69,4 @@ img{
   flex-direction: row;
   justify-content: space-between;
 }
-
 </style>
