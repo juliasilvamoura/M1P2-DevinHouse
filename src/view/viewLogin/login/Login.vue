@@ -3,8 +3,8 @@
     <h1>Login</h1>
     <vee-form @submit="autenticar" :validation-schema="schema" v-slot="{ errors }">
         <div class="row">
-      <div class="col-6">
-        <img
+      <div class="col-6" id="divdaImg">
+        <img id="img-login" style="width: 100%; height: 100%"
           src="https://www.logisticadescomplicada.com/wp-content/uploads/2011/11/gestao-de-estoques.jpg"
           alt="imagem inventário de estoque"
         />
@@ -13,15 +13,12 @@
           <label>Email </label>
           <vee-field name="email" type="email" class="form-control" v-model="login.email"/>
           <span class="text-danger" v-show="errors.email">{{ errors.email }}</span>
-        <!-- </div> -->
-        <!-- <div class="col-3" style="margin-top: 2%"> -->
+
             <br>
           <label>Senha </label>
           <vee-field name="senha" type="password" class="form-control" v-model="login.senha"/>
           <span class="text-danger" v-show="errors.senha">{{ errors.senha }}</span>
           <br>
-        <!-- </div> -->
-        <!-- <div class="col-4" style="margin-top: 2%"> -->
           <button type="submit" class="btn btn-primary">Login</button>
            <button type="buton" class="btn btn-light" style="margin-left: 5%" @click="google">Google</button>
            <button type="buton" class="btn btn-light" style="margin-left: 5%" @click="cadastroLogin">Cadastrar</button>
@@ -71,8 +68,8 @@ export default {
   },
   methods: {
     autenticar() {
-        this.$store.commit('autenticacaoModule/autenticar', this.login)
-            if(this.$store.state.autenticacaoModule.autenticado){
+        this.$store.commit('userModule/autenticar', this.login)
+            if(this.$store.state.userModule.autenticado){
                 this.$router.push('/template'); // se for autentificado vai para 
             }
     },
@@ -80,7 +77,7 @@ export default {
         alert("Função em construção!")
     },
     cadastroLogin(){
-        this.$router.push('/login/cadastro')
+        this.$router.push('/cadastro')
     }
   },
 }
@@ -98,10 +95,9 @@ label{
     margin-top: 5%;
 }
 
-img { 
+#img-login{ 
     margin-right: 10%; 
-    width: 100%;
-    left: 100%;
+  
 }
 
 button {

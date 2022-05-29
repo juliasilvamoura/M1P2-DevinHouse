@@ -45,7 +45,6 @@
             </vee-field>
         <span class="text-danger" v-show="errors.cargo">{{ errors.cargo }}</span>
       </div>
-    
 
     </div>
 
@@ -54,7 +53,6 @@
       <div class="col-md-2"> 
         <label for="cep">CEP</label>
         <vee-field name="cep" class="form-control" v-model.lazy="cadastroColab.cep"/>
-        <!-- <span class="text-warning" >{{msg}} </span> -->
         <span class="text-danger" v-show="errors.cep">{{ errors.cep }}</span>
       </div>
 
@@ -105,7 +103,7 @@
 
       <div class="botoes" style="margin-top: 3%">
       <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary" style="margin-left: 2%">Salvar</button>
+        <button type="submit" class="btn btn-primary" style="margin-left: 2%" @click="salvar">Salvar</button>
         <button type="buton" class="btn btn-warning" style="margin-left: 2%" @click="clear">Limpar</button>
       </div>
       </div>
@@ -118,6 +116,7 @@
 
 <script>
 import { Form, Field, defineRule } from 'vee-validate';
+import axios from "axios";
 
 export default {
     components: {
@@ -185,7 +184,6 @@ export default {
                 complemento: "required",
                 bairro: "required",
                 pontoReferencia:"required"
-
             }
             return{
                 schema,
@@ -193,7 +191,8 @@ export default {
                 cargos: null,
                 endereco: null,
                 cidade: null,
-                cadastroColab: {}
+                cadastroColab: {},
+                titulo: "CADASTRO DE COLABORADORES"
             }
         },
         methods:{
@@ -204,38 +203,35 @@ export default {
                 this.cadastroColab = {}; // limpando os dados na tela
                 document.getElementById('formColab').reset(); // retorna os valores originais
                 alert("Colaborador salvo com sucesso!"); // alert para informar que usuário foi salvo
-
             },
             // metodo limpar formulário em tela
             clear(){
                 this.cadastroColab = {};
             }
         },
-        // watch: {
-        //   'cadastroColab.cep'() {
-        //     const url = `https://viacep.com.br/ws/${this.cep}/json`;
+        //completa o endereço de cadastro
+        watch: {
+         'cadastroColab.cep'() {
+
+          axios.get(`https://viacep.com.br/ws/${this.cadastroColab.cep}/json`)
+         .then((response) => {
+           this.endereco = response.data
+           this.cadastroColab.cidade = this.endereco.localidade
+           this.cadastroColab.estado = this.endereco.uf
+          }).catch((error) => {
+            console.log(error)
+          })
+},
+        },
         
-        //     fetch(url)
-        //     .then(resposta => {
-        //       // console.log(resposta.json())
-        //       resposta.json().then(conteudo => this.endereco = conteudo)
-        //       // this.cidade = this.endereco.localidade
-        //       // console.log(this.cidade)
-        //       // this.cadastroColab.cep = this.cep
-              
-                
-        //     })
-        //     .catch(erro =>{
-        //         console.log(erro)
-        //         this.msg = "Este CEP é inválido"
-        //     });
-        //   }
-        // },
         beforeMount(){
             // criar os dropdown para genero e cargos
             this.generos=["Feminino", "Masculino", "Não Binário"];
-            this.cargos = ["Dev Front-end", "Dev Back-end", "Diretor", "Gerente"];
-    }
+            this.cargos = ["Dev Front-end", "Dev Back-end", "Diretor", "Gerente", "CTO", "CEO","Engenheiro de Dados"];
+    },
+    mounted(){
+      this.$store.state.tituloModule.titulos = this.titulo;
+    },
 }
 </script>
 

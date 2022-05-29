@@ -31,6 +31,16 @@ O projeto Front-End desenvolvido durante o Módulo 1, consiste em um software ut
   <li><i>Funcionalidade de visualizar informações e permitir edição</i> </li>
 </ul>
 
+# Detalhes:
+
+<ul>
+  <li><i>Detalhar o produto deve clicar na imagem - Apenas tela de Inventário</i> </li>
+  <li><i>Detalhar o colaborador deve clicar na imagem - Apenas tela de Listagem de Colaborador</i> </li>
+  <li><i>Não foi realizado animação ao salvar e/ou mudar de pagina</i> </li>
+  <li><i>Pesquisa de produto pelo Id de Patrimonio - Tela de Emprestimo</i> </li>
+  <li><i>Pesquisa de colaborador pelo nome - Tela de Listagem de colaborador</i> </li>
+</ul>
+
 # Tecnologias utilizadas:
 <p align="center">
 <img width="65px" height="65px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" />
@@ -46,3 +56,12 @@ Meu nome é Julia, futura Engenheira de Computação, formada pelo Instituto Fed
 # Redes Sociais:
 
 <a href="https://www.linkedin.com/in/julia-m-9abba9110/" target="_blank"><img width="60px" height="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" /></a>
+
+# Referências:
+<ul>
+<li><a href="https://www.npmjs.com/package/vue3-gravatar#installation" target="_blank">vue3-gravatar</a></li>
+<li><a href="https://github.com/mengdu/m-dialog" target="_blank">modal m-dialog</a></li>
+<li><a href="https://router.vuejs.org/" target="_blank">vue Router</a></li>
+<li><a href="https://vuex.vuejs.org/" target="_blank">vueX</a></li>
+<li><a href="https://viacep.com.br/" target="_blank">viaCep</a></li>
+  </ul>

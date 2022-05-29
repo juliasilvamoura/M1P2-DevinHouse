@@ -1,63 +1,5 @@
 import { createStore } from 'vuex';
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-const autenticacaoModule = {
-    namespaced: true,
-    state(){
-        return{
-            autenticado: false,
-            usuarios: []
-        }
-    },
-    mutations: {
-        autenticar(state, login){
-            const listaUsuariosJSON = localStorage.getItem('listaUsers') // recupera o localStorage
-            if(listaUserJSON){ // se tiver algo na lista
-                this.usuarios = []; //esvazio a lista
-                this.usuarios =  JSON.parse(listaUsuariosJSON); // faço receber os itens da lista
-            }
-            usuarios.forEach(user => {
-                if(login.email === user.email && login.senha === user.senha){
-                    localStorage.setItem('autenticado', true);
-                    state.autenticado = true;
-                }
-            });
-            
-        },
-        logout(state){
-            localStorage.removeItem('autenticado')
-            state.autenticado = false
-          }
-    }
-}
-
-const userModule = {
-    namespaced: true,
-    state(){
-        return{
-            users: []
-        }
-    },
-    mutations:{
-        save(state, user){
-            // pensando que a tela foi recarregada, recupera os itens no localStorage
-            const listaUserJSON = localStorage.getItem('listaUsers') // recupera o localStorage
-            if(listaUserJSON){ // se tiver algo na lista
-                this.users = []; //esvazio a lista
-                this.users =  JSON.parse(listaUserJSON); // faço receber os itens da lista
-            }
-            state.users.push(user); // depois adiciono o item na lista
-            localStorage.removeItem('listaUsers'); // removo a lista do local storage 
-            listaUserJSON = JSON.stringify(this.users); // Transformar em JSON/String
-            localStorage.setItem('listaUsers',listaUserJSON); // salvar no localStorage a lista toda novamente
-            console.log(listaUserJSON)
-        }
-    }
-
-=======
-=======
->>>>>>> Stashed changes
 const userModule = {
     namespaced: true,
     state(){
@@ -104,21 +46,6 @@ const userModule = {
                 }
                 let nomeJSON = JSON.stringify(state.nomeusuario); // Transformar em JSON/String
                 localStorage.setItem('nomeusuario',nomeJSON); // salvar no localStorage a lista toda novamente
-<<<<<<< Updated upstream
-                
-                
-            });
-        },
-        nomeUsuario(){
-            let nomeJSON = localStorage.getItem('nomeusuario')
-                state.nomeusuario = null;
-                state.nomeusuario =nomeJSON;
-            
-
-        }     
-    }
->>>>>>> Stashed changes
-=======
             });
         },
         nomeUsuario(state){
@@ -127,47 +54,21 @@ const userModule = {
             state.nomeusuario =JSON.parse(nomeJSON)
         }     
     }
->>>>>>> Stashed changes
+
 }
 
 const cadColaboradorModule = {
     namespaced: true,
     state(){
         return{
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            cadastroColabs: []
-=======
             cadastroColabs: [],
             quantidade: null,
             colabPesquisado: [],
->>>>>>> Stashed changes
-=======
-            cadastroColabs: [],
-            quantidade: null,
-            colabPesquisado: [],
->>>>>>> Stashed changes
         }
     },
     mutations:{
         salvar(state, cadastroColab){
             // pensando que a tela foi recarregada, recupera os itens no localStorage
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            // const listaColabJSON = localStorage.getItem('cadastroColabs') // recupera o localStorage
-            // if(listaColabJSON){ // se tiver algo na lista
-            //     this.cadastroColabs = []; //esvazio a lista
-            //     this.cadastroColabs =  JSON.parse(listaColabJSON); // faço receber os itens da lista
-            // }
-            state.cadastroColabs.push(cadastroColab); // depois adiciono o item na lista
-            console.log(cadastroColab)
-            // localStorage.removeItem('cadastroColabs'); // removo a lista do local storage 
-            // listaColabJSON = JSON.stringify(this.cadastroColabs); // Transformar em JSON/String
-            // localStorage.setItem('cadastroColabs',listaColabJSON); // salvar no localStorage a lista toda novamente
-        },
-=======
-=======
->>>>>>> Stashed changes
             let listaColabJSON = localStorage.getItem('cadastroColabs') // recupera o localStorage
             if(listaColabJSON){ // se tiver algo na lista
                 state.cadastroColabs = []; //esvazio a lista
@@ -213,11 +114,6 @@ const cadColaboradorModule = {
             })
             state.colabPesquisado = index;
         }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
     }
 }
 
@@ -226,47 +122,16 @@ const cadProdutoModule = {
     namespaced: true,
     state(){
         return{
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            cadastroProds: []
-=======
-=======
->>>>>>> Stashed changes
             cadastroProds: [],
             quantidade: null,
             quantidadeemp: null,
             valor: 0,
             itemPesquisado: [],
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         }
     },
     mutations:{
         salvar(state, cadastroProd){
             // pensando que a tela foi recarregada, recupera os itens no localStorage
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            console.log(cadastroProd)
-            // let listaProdJSON = localStorage.getItem('cadastroProds') // recupera o localStorage
-            // if(listaProdJSON){ // se tiver algo na lista
-            //     this.cadastroProds = []; //esvazio a lista
-            //     this.cadastroProds =  JSON.parse(listaProdJSON); // faço receber os itens da lista
-            // }
-            state.cadastroProds.push(cadastroProd);
-            // localStorage.removeItem('cadastroProds'); // limpar lista e add tudo novamente
-            let listaProdJSON = JSON.stringify(this.cadastroProds); // Transformar em JSON/String
-            localStorage.setItem('cadastroProds',listaProdJSON); // salvar no localStorage
-            console.log(listaProdJSON)
-        },
-}
-}
-
-
-=======
-=======
->>>>>>> Stashed changes
             let listaProdJSON = localStorage.getItem('cadastroProds') // recupera o localStorage
             if(listaProdJSON){ // se tiver algo na lista
                 state.cadastroProds = []; //esvazio a lista
@@ -366,29 +231,13 @@ const tituloModule ={
         }
     }
 }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
 const store = createStore({
     modules:{
         cadColaboradorModule,
         cadProdutoModule,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        autenticacaoModule,
-        userModule
-=======
         userModule,
         tituloModule
         
->>>>>>> Stashed changes
-=======
-        userModule,
-        tituloModule
-        
->>>>>>> Stashed changes
     }
 });
 

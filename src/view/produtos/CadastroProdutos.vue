@@ -33,7 +33,6 @@
       <div class="col-md-2"> 
         <label>Valor R$</label>
         <vee-field name="valor" type="number" class="form-control" v-model.lazy="cadastroProd.valor"/>
-        <!-- <span class="text-warning" >{{msg}} </span> -->
         <span class="text-danger" v-show="errors.valor">{{ errors.valor }}</span>
       </div>
 
@@ -50,15 +49,13 @@
         <span class="text-danger" v-show="errors.marca">{{ errors.marca }}</span>
       </div>
 
-
-
       <div class="col-5">
         <label >Modelo</label>
         <vee-field name="modelo" type="text"  class="form-control" v-model="cadastroProd.modelo"/>
         <span class="text-danger" v-show="errors.modelo">{{ errors.modelo }}</span>
       </div>
 
-      <div class="col-1">
+      <div class="col-5">
         <label>Descrição</label>
         <vee-field name="descricao" type="text"  class="form-control" v-model="cadastroProd.descricao"/>
         <span class="text-danger" v-show="errors.descricao">{{ errors.descricao }}</span>
@@ -112,12 +109,16 @@ export default {
             return{
                 schema,
                 categorias: null,
-                cadastroProd: {}
+                cadastroProd: {},
+                titulo: "CADASTRO DE ITENS"
             }
         },
         methods:{
             // metodo salvar o produto
             salvar(){
+                this.cadastroProd.status = false;
+                this.cadastroProd.nomeColab = null;
+                this.cadastroProd.idColab = null; 
                 this.cadastroProd.id = Date.now(); // id será a data atual
                 this.$store.commit('cadProdutoModule/salvar', this.cadastroProd)
                 this.cadastroProd = {}; // limpando os dados na tela
@@ -132,7 +133,10 @@ export default {
         },
         beforeMount(){
             // criar os dropdown para categoria
-            this.categorias=["Eletrônico", "Mobiliário", "Geral"];
+            this.categorias=["Eletrônico", "Mobiliário", "Geral","Decoração"];
+    },
+    mounted(){
+      this.$store.state.tituloModule.titulos = this.titulo;
     }
 }
 </script>
