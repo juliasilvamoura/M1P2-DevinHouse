@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 const autenticacaoModule = {
     namespaced: true,
     state(){
@@ -55,6 +56,8 @@ const userModule = {
     }
 
 =======
+=======
+>>>>>>> Stashed changes
 const userModule = {
     namespaced: true,
     state(){
@@ -101,6 +104,7 @@ const userModule = {
                 }
                 let nomeJSON = JSON.stringify(state.nomeusuario); // Transformar em JSON/String
                 localStorage.setItem('nomeusuario',nomeJSON); // salvar no localStorage a lista toda novamente
+<<<<<<< Updated upstream
                 
                 
             });
@@ -114,6 +118,16 @@ const userModule = {
         }     
     }
 >>>>>>> Stashed changes
+=======
+            });
+        },
+        nomeUsuario(state){
+            let nomeJSON = localStorage.getItem('nomeusuario')
+            state.nomeusuario = "";
+            state.nomeusuario =JSON.parse(nomeJSON)
+        }     
+    }
+>>>>>>> Stashed changes
 }
 
 const cadColaboradorModule = {
@@ -121,7 +135,13 @@ const cadColaboradorModule = {
     state(){
         return{
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             cadastroColabs: []
+=======
+            cadastroColabs: [],
+            quantidade: null,
+            colabPesquisado: [],
+>>>>>>> Stashed changes
 =======
             cadastroColabs: [],
             quantidade: null,
@@ -132,6 +152,7 @@ const cadColaboradorModule = {
     mutations:{
         salvar(state, cadastroColab){
             // pensando que a tela foi recarregada, recupera os itens no localStorage
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             // const listaColabJSON = localStorage.getItem('cadastroColabs') // recupera o localStorage
             // if(listaColabJSON){ // se tiver algo na lista
@@ -145,6 +166,8 @@ const cadColaboradorModule = {
             // localStorage.setItem('cadastroColabs',listaColabJSON); // salvar no localStorage a lista toda novamente
         },
 =======
+=======
+>>>>>>> Stashed changes
             let listaColabJSON = localStorage.getItem('cadastroColabs') // recupera o localStorage
             if(listaColabJSON){ // se tiver algo na lista
                 state.cadastroColabs = []; //esvazio a lista
@@ -190,6 +213,9 @@ const cadColaboradorModule = {
             })
             state.colabPesquisado = index;
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     }
@@ -201,19 +227,26 @@ const cadProdutoModule = {
     state(){
         return{
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             cadastroProds: []
 =======
+=======
+>>>>>>> Stashed changes
             cadastroProds: [],
             quantidade: null,
             quantidadeemp: null,
             valor: 0,
             itemPesquisado: [],
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     },
     mutations:{
         salvar(state, cadastroProd){
             // pensando que a tela foi recarregada, recupera os itens no localStorage
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             console.log(cadastroProd)
             // let listaProdJSON = localStorage.getItem('cadastroProds') // recupera o localStorage
@@ -232,6 +265,8 @@ const cadProdutoModule = {
 
 
 =======
+=======
+>>>>>>> Stashed changes
             let listaProdJSON = localStorage.getItem('cadastroProds') // recupera o localStorage
             if(listaProdJSON){ // se tiver algo na lista
                 state.cadastroProds = []; //esvazio a lista
@@ -331,6 +366,9 @@ const tituloModule ={
         }
     }
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 const store = createStore({
@@ -338,8 +376,14 @@ const store = createStore({
         cadColaboradorModule,
         cadProdutoModule,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         autenticacaoModule,
         userModule
+=======
+        userModule,
+        tituloModule
+        
+>>>>>>> Stashed changes
 =======
         userModule,
         tituloModule
