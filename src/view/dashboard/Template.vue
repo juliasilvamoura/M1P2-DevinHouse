@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-<template>
-<div class="template">
-    <div style="position: relative" v-if="autenticado">
-        <Navbar/>
-        <Sidebar/>
-        <router-view style="position: relative; left: 10%"></router-view>
-=======
 <template class="template">
 <div>
     <div v-if="autenticado">
@@ -14,26 +6,13 @@
         <div class="tela">
         <router-view></router-view>
         </div>
->>>>>>> Stashed changes
     </div>
 
     <div class="login-template" v-else>
         <label> Ações de login são necessárias -</label>
-<<<<<<< Updated upstream
-         <router-link to="/login"> Login</router-link>
-    </div>
- 
-    
-
-</div>
-
-  
-=======
          <router-link to="/"> Login</router-link>
     </div>
-
 </div>
->>>>>>> Stashed changes
 </template>
 
 <script>
@@ -54,29 +33,15 @@ export default {
     },
     computed:{
         autenticado(){
-<<<<<<< Updated upstream
-            // return this.$store.state.autenticacaoModule.autenticado;
-            return true
-        }
-    },
-    monted(){
-        this.$store.satte.autenticacaoModule.autenticado = localStorage.getItem('autenticado') ? true : false
-=======
             return this.$store.state.userModule.autenticado;
         },
         
     },
-<<<<<<< Updated upstream
-    monted(){
-        this.$store.state.autenticacaoModule.autenticado = localStorage.getItem('autenticado') ? true : false
->>>>>>> Stashed changes
-    }
-=======
+
     beforeMount(){
         this.$store.state.userModule.autenticado = localStorage.getItem('autenticado') ? true : false
         this.$store.commit("userModule/nomeUsuario");
     },
->>>>>>> Stashed changes
 
 }
 </script>
@@ -88,12 +53,6 @@ export default {
     font-size: 100%;
 }
 
-<<<<<<< Updated upstream
-.template{
-
-}
-
-=======
 template{
     display: grid;
     grid-template-columns: 1fr 3fr ;
@@ -117,11 +76,6 @@ template{
     margin-left: 12%;
     margin-top: 1%;
 }
->>>>>>> Stashed changes
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 </style>
