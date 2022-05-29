@@ -41,6 +41,14 @@ O projeto Front-End desenvolvido durante o Módulo 1, consiste em um software ut
   <li><i>Pesquisa de colaborador pelo nome - Tela de Listagem de colaborador</i> </li>
 </ul>
 
+# Utilização:
+
+<ul>
+<li>No terminal dentro do projeto instalar <<i>npm i</i>></li>
+<li>Para start do projeto <<i>npm run serve</i>></li>
+</ul>
+
+
 # Tecnologias utilizadas:
 <p align="center">
 <img width="65px" height="65px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" />
